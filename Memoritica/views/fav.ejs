@@ -1,0 +1,151 @@
+<html>
+    <head>
+
+        <title>Memories</title>
+        <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/338/338337.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body class="bg-slate-300">
+      <nav class="bg-gray-800 shadow-lg fixed inset-x-0">
+        <div class="max-w-6xl mx-auto px-4">
+          <div class="flex justify-between">
+            <div class="flex space-x-7">
+              <div>
+                <!-- Website Logo -->
+                <a href="#" class="flex items-center py-4 px-2">
+                  <img src="https://cdn-icons-png.flaticon.com/512/338/338337.png" alt="Logo" class="h-8 w-8 mr-2">
+                  <span class="font-semibold text-gray-300 text-lg">Memoritica</span>
+                </a>
+              </div>
+              <!-- Primary Navbar items -->
+              <div class="hidden md:flex items-center flex space-x-6 justify-center">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/home" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Create Memories</a>
+                <a href="/memories" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">View Memories</a>
+                 </div>
+            </div>
+            <!-- Secondary Navbar items -->
+            <div class="hidden md:flex items-center space-x-3 ">
+              <div>
+                <button type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                  <span class="sr-only">Open user menu</span>
+                  <img class="h-8 w-8 rounded-full"  src="https://ravi-memories.s3.ap-northeast-1.amazonaws.com/ab1d56a967473ecec9451f0b1a150f80" alt="">
+                  <p class="text-white px-4 pt-1">Ravichandran B</p>
+                </button>
+                
+              </div>
+            </div>
+            <!-- Mobile menu button -->
+            <div class="md:hidden flex items-center">
+              <button class="outline-none mobile-menu-button">
+              <svg class=" w-6 h-6 text-gray-500 hover:text-green-500 "
+                x-show="!showMenu"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+            </div>
+          </div>
+        </div>
+        <!-- mobile menu -->
+        <div class="hidden mobile-menu">
+          <ul class="">
+            <li class="active"><a href="/home" class="block text-sm px-2 py-4 text-gray-300 font-semibold">Create Memories</a></li>
+            <li><a href="/memories" class="block text-sm px-2 py-4 text-gray-300 transition duration-300">View memories</a></li>
+           <!-- <li><img class="h-8 w-8 rounded-full"  src="https://ravi-memories.s3.ap-northeast-1.amazonaws.com/ab1d56a967473ecec9451f0b1a150f80" alt=""><span class="text-white px-4 pt-1">Ravichandran B</span></li> -->
+         <li> <a href="#" class="flex items-center py-4 px-2">
+          <img src="https://ravi-memories.s3.ap-northeast-1.amazonaws.com/ab1d56a967473ecec9451f0b1a150f80" alt="Logo" class="h-8 w-8 mr-2 rounded-full">
+          <span class="font-semibold text-gray-300 text-lg">Ravichandran B</span></a>
+        </a></li>
+          </ul>
+
+        </div>
+        <script>
+          const btn = document.querySelector("button.mobile-menu-button");
+          const menu = document.querySelector(".mobile-menu");
+  
+          btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+          });
+        </script>
+      </nav>
+      
+      <div class="md:p-10 p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+        <!--Card 1-->
+        <div class="mt-12 md:mt-0 md:hidden">
+
+        </div>
+        <% images.forEach((i) => { %>
+          <div class="rounded overflow-hidden md:mt-12 bg-white shadow-lg">
+            <img class="w-full" style="height:300px" src="https://ravi-memories.s3.ap-northeast-1.amazonaws.com/<%= i.key %>" alt="image">
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2"><%=i.title %></div>
+              <p class="text-gray-700 text-base">
+                <%= i.description %>
+              </p>
+            </div>
+            <div class="px-6 pt-4 pb-2">
+              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#<%= i.hashtag %></span>
+            </div>
+          </div>
+      <%  }); %>
+        
+        <!--Card 2-->
+        <!-- <div class="rounded overflow-hidden shadow-lg">
+          <img class="w-full" src="https://i.pinimg.com/originals/93/ea/61/93ea612755db203c3b5197dea09643fb.jpg" alt="River">
+          <div class="px-6 py-4">
+            <div class="font-bold text-xl mb-2">River</div>
+            <p class="text-gray-700 text-base">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+            </p>
+          </div>
+          <div class="px-6 pt-4 pb-2">
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#summer</span>
+          </div>
+        </div>
+
+        <div class="rounded overflow-hidden shadow-lg">
+          <img class="w-full" src="https://i.pinimg.com/originals/93/ea/61/93ea612755db203c3b5197dea09643fb.jpg" alt="River">
+          <div class="px-6 py-4">
+            <div class="font-bold text-xl mb-2">River</div>
+            <p class="text-gray-700 text-base">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+            </p>
+          </div>
+          <div class="px-6 pt-4 pb-2">
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#summer</span>
+          </div>
+        </div>
+    
+        <!--Card 3
+        <div class="rounded overflow-hidden shadow-lg">
+          <img class="w-full" src="https://i.pinimg.com/originals/93/ea/61/93ea612755db203c3b5197dea09643fb.jpg" alt="Forest">
+          <div class="px-6 py-4">
+            <div class="font-bold text-xl mb-2">Forest</div>
+            <p class="text-gray-700 text-base">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+            </p>
+          </div>
+          <div class="px-6 pt-4 pb-2">
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fall</span>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    </body>
+</html>
