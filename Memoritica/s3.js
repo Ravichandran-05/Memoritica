@@ -3,10 +3,10 @@ const fs = require('fs')
 const S3 = require('aws-sdk/clients/s3')
 
 
-const bucketName = "ravi-memories"
-const region = "ap-northeast-1"
-const accessKeyId = "AKIAQOAF2N3OK5XVTTWX"
-const secretAccessKey = "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"
+const bucketName = "bucket-name"
+const region = "bucket-region"
+const accessKeyId = "accesskey"
+const secretAccessKey = "secret-accesskey"
 
 const s3 = new S3({
   region,
