@@ -8,9 +8,7 @@ const mongoose = require("mongoose");
 
 const port = process.env.PORT || 8000;
 
-mongoose.connect(
-  "mongodb+srv://ravib_05:ravichandran@cluster0.pgad7.mongodb.net/aws_s3"
-);
+mongoose.connect("mongodb");
 const Schema = mongoose.Schema;
 
 const serialSchema = new Schema({
