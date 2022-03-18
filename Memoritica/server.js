@@ -83,7 +83,7 @@ app.post("/login", (req, res) =>{
   const email = req.body.email;
   const password = req.body.password;
   console.log(email + password);
-  if(email == "ravichandranb32@gmail.com" && password == "30-Jun-01")
+  if(valid)
   {
      res.redirect("/home")
   }
