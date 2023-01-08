@@ -49,16 +49,16 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.get("/", (req, res) =>{
-  res.render("login", {
-    path:"/login",
+  res.render("home", {
+    path:"/home",
     err:0
   })
   
 })
 
-app.get("/home", (req, res) =>{
-  res.render("home", {
-    path:"/home"
+app.get("/login", (req, res) =>{
+  res.render("login", {
+    path:"/login"
   })
   
 })
