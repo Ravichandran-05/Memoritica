@@ -3,10 +3,10 @@ const fs = require('fs')
 const S3 = require('aws-sdk/clients/s3')
 
 
-const bucketName = "bucket-name"
-const region = "bucket-region"
-const accessKeyId = "accesskey"
-const secretAccessKey = "secret-accesskey"
+const bucketName = process.env.bucketName
+const region = process.env.bucketRregion
+const accessKeyId = process.env.accessKey
+const secretAccessKey = process.env.secretAccessKey
 
 const s3 = new S3({
   region,
